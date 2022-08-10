@@ -5,11 +5,16 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Cart from './pages/Cart';
 import { Routes, Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { increment, decrement } from './redux/slices/filterSlice';
 
 export const SearchContext = React.createContext();
 
 function App() {
   const [searchValue, setSearchValue] = React.useState('');
+
+  const filter = useSelector((state) => state.filter.value);
+  const dispatch = useDispatch();
 
   return (
     <div className="wrapper">

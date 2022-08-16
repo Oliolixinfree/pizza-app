@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSort } from '../redux/slices/filterSlice';
 
-const Sort = ({ value, onChangeSort }) => {
+const list = [
+  { name: 'популярности по убыванию(DESC)', sortProperty: 'rating' },
+  { name: 'популярности по возрастанию(ASC)', sortProperty: '-rating' },
+  { name: 'цена по убыванию(DESC)', sortProperty: 'price' },
+  { name: 'цена по возрастанию(ASC)', sortProperty: '-price' },
+  { name: 'алфавиту по убыванию(DESC)', sortProperty: 'title' },
+  { name: 'алфавиту по возрастанию(ASC)', sortProperty: '-title' },
+];
+
+const Sort = () => {
+  const dispatch = useDispatch();
+  const sort = useSelector((state) => state.filter.sort);
+
   const [open, setOpen] = useState(false);
-  const list = [
-    { name: 'популярности по убыванию(DESC)', sortProperty: 'rating' },
-    { name: 'популярности по возрастанию(ASC)', sortProperty: '-rating' },
-    { name: 'цена по убыванию(DESC)', sortProperty: 'price' },
-    { name: 'цена по возрастанию(ASC)', sortProperty: '-price' },
-    { name: 'алфавиту по убыванию(DESC)', sortProperty: 'title' },
-    { name: 'алфавиту по возрастанию(ASC)', sortProperty: '-title' },
-  ];
 
-  const onClickSelectSort = (i) => {
-    onChangeSort(i);
+  const onClickSelectSort = (obj) => {
+    dispatch(setSort(obj));
     setOpen(false);
   };
 
@@ -31,7 +37,7 @@ const Sort = ({ value, onChangeSort }) => {
           />
         </svg>
         <b>Сортировка по:</b>
-        <span onClick={() => setOpen(!open)}>{value.name}</span>
+        <span onClick={() => setOpen(!open)}>{sort.name}</span>
       </div>
       {open && (
         <div className="sort__popup">
@@ -40,7 +46,7 @@ const Sort = ({ value, onChangeSort }) => {
               <li
                 key={i}
                 onClick={() => onClickSelectSort(obj)}
-                className={value.sortProperty === obj.sortProperty ? 'active' : ''}>
+                className={sort.sortProperty === obj.sortProperty ? 'active' : ''}>
                 {obj.name}
               </li>
             ))}

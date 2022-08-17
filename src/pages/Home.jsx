@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 
 import PizzaBlock from '../components/PizzaBlock';
@@ -11,7 +12,6 @@ import { setCategoryId } from '../redux/slices/filterSlice';
 
 const Home = () => {
   const { categoryId, sort } = useSelector((state) => state.filter);
-  // const sortType = useSelector((state) => state.filter.sort.sortProperty);
   const dispatch = useDispatch();
 
   const { searchValue } = React.useContext(SearchContext);
@@ -31,14 +31,15 @@ const Home = () => {
     const category = categoryId > 0 ? `category=${categoryId}` : '';
     const search = searchValue ? `&search=${searchValue}` : '';
 
-    fetch(
-      `https://62eac9bd705264f263cf1189.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`,
-    )
-      .then((res) => res.json())
-      .then((arr) => {
-        setItems(arr);
+    axios
+      .get(
+        `https://62eac9bd705264f263cf1189.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`,
+      )
+      .then((res) => {
+        setItems(res.data);
         setIsLoading(false);
       });
+
     window.scrollTo(0, 0);
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 

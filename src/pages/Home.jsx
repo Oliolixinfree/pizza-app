@@ -6,11 +6,11 @@ import { useNavigate } from 'react-router-dom';
 
 import PizzaBlock from '../components/PizzaBlock';
 import Skeleton from '../components/PizzaBlock/Skeleton';
-import Sort from '../components/Sort';
+import Sort, { list } from '../components/Sort';
 import Categories from '../components/Categories';
 import Pagination from '../components/Pagination';
 import { SearchContext } from '../App';
-import { setCategoryId, setCurrentPage } from '../redux/slices/filterSlice';
+import { setCategoryId, setCurrentPage, setFilters } from '../redux/slices/filterSlice';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -32,6 +32,15 @@ const Home = () => {
   React.useEffect(() => {
     if (window.location.search) {
       const params = qs.parse(window.location.search.substring(1));
+
+      const sort = list.find((obj) => obj.sortProperty === params.sortProperty);
+
+      dispatch(
+        setFilters({
+          ...params,
+          sort,
+        }),
+      );
     }
   }, []);
 

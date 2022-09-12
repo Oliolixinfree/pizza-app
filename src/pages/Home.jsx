@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import PizzaBlock from '../components/PizzaBlock';
 import Skeleton from '../components/PizzaBlock/Skeleton';
-import Sort, { list } from '../components/Sort';
+import Sort, { sortList } from '../components/Sort';
 import Categories from '../components/Categories';
 import Pagination from '../components/Pagination';
 import {
@@ -71,7 +71,7 @@ const Home = () => {
     if (window.location.search) {
       const params = qs.parse(window.location.search.substring(1));
 
-      const sort = list.find((obj) => obj.sortProperty === params.sortProperty);
+      const sort = sortList.find((obj) => obj.sortProperty === params.sortProperty);
 
       dispatch(
         setFilters({

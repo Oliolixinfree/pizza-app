@@ -13,14 +13,14 @@ const Search: React.FC = () => {
     dispatch(setSearchValue(''));
     setValue('');
 
+    // Вариант 2
+    // Если в current нет значения или null, то не вызываем
+    inputRef.current?.focus();
+
     // Вариант 1
     // if (inputRef.current) {
     //   inputRef.current.focus();
     // }
-
-    // Вариант 2
-    // Если в current нет значения или null, то не вызываем
-    inputRef.current?.focus();
   };
 
   // eslint-disable-next-line
@@ -30,7 +30,7 @@ const Search: React.FC = () => {
     }, 250),
     [],
   );
-  const onChangeInput = (event: any) => {
+  const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
     updateSearchValue(event.target.value);
   };

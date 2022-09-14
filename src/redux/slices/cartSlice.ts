@@ -6,8 +6,8 @@ export type CartItem = {
   title: string;
   price: number;
   imageUrl: string;
-  sizes: number;
-  types: string;
+  size: number;
+  type: string;
   count: number;
 };
 

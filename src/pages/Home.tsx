@@ -26,9 +26,10 @@ const Home: React.FC = () => {
   const { categoryId, sort, currentPage, searchValue } = useSelector(selectFilter);
   const { items, status } = useSelector(selectPizzaData);
 
-  const onChangeCategory = (idx: number) => {
+  const onChangeCategory = React.useCallback((idx: number) => {
     dispatch(setCategoryId(idx));
-  };
+  }, []);
+
   const onChangePage = (page: number) => {
     dispatch(setCurrentPage(page));
   };
@@ -139,7 +140,7 @@ const Home: React.FC = () => {
   // ==================
 
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
-  const pizzas = items.map((obj: any) => <PizzaBlock {...obj} />);
+  const pizzas = items.map((obj: any) => <PizzaBlock key={obj.id} {...obj} />);
 
   return (
     <div className="container">

@@ -16,7 +16,7 @@ export const sortList: SortItem[] = [
   { name: 'алфавиту по возрастанию(ASC)', sortProperty: SortPropertyEnum.RATING_ASC },
 ];
 
-const SortPopup = () => {
+const SortPopup: React.FC = () => {
   const dispatch = useDispatch();
   const sort = useSelector(selectSort);
   const sortRef = React.useRef<HTMLDivElement>(null);

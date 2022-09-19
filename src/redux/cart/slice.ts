@@ -1,29 +1,9 @@
-import { calcTotalPrice } from './../../utils/calcTotalPrice';
-import { getCartFromLS } from './../../utils/getCartFromLocalStorage';
-import { RootState } from './../store';
+import { calcTotalPrice } from '../../utils/calcTotalPrice';
+import { getCartFromLS } from '../../utils/getCartFromLocalStorage';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { CartItem, CartSliceState } from './types';
 
-export type CartItem = {
-  id: string;
-  title: string;
-  price: number;
-  imageUrl: string;
-  size: number;
-  type: string;
-  count: number;
-};
-
-interface CartSliceState {
-  totalPrice: number;
-  items: CartItem[];
-}
-
-const { items, totalPrice } = getCartFromLS();
-
-const initialState: CartSliceState = {
-  totalPrice,
-  items,
-};
+const initialState: CartSliceState = getCartFromLS();
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -62,11 +42,6 @@ const cartSlice = createSlice({
     },
   },
 });
-
-// создание селектора, принято называть через select/selector
-export const selectCart = (state: RootState) => state.cart;
-export const selectCartItemById = (id: string) => (state: RootState) =>
-  state.cart.items.find((obj) => obj.id === id);
 
 export const { addItem, removeItem, minusItem, clearItems } = cartSlice.actions;
 

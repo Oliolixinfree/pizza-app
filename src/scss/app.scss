@@ -119,6 +119,9 @@ body {
     .content__title {
       margin: 0;
     }
+    @media (min-width: 320px) and (max-width: 768px) {
+      margin: 0 auto;
+    }
   }
 }
 
@@ -127,12 +130,22 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (min-width: 320px) and (max-width: 768px) {
+      flex-direction: column;
+      justify-content: space-around;
+    }
   }
 
   .content__title {
     display: flex;
     align-items: center;
     font-size: 32px;
+
+    @media (min-width: 320px) and (max-width: 768px) {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
 
     svg {
       position: relative;
@@ -188,12 +201,22 @@ body {
     border-top: 1px solid $gray-line;
     padding-top: 30px;
     margin-top: 30px;
+    @media (min-width: 320px) and (max-width: 600px) {
+      padding-top: 20px;
+      margin-top: 20px;
+      flex-direction: column;
+    }
 
     &-img {
       display: flex;
       align-items: center;
       margin-right: 15px;
-      width: 10%;
+      // width: 10%;
+      @media (min-width: 320px) and (max-width: 600px) {
+        margin-right: 0;
+        width: 100%;
+        justify-content: center;
+      }
 
       img {
         width: 80px;
@@ -206,6 +229,12 @@ body {
       flex-direction: column;
       justify-content: center;
       width: 40%;
+      @media (min-width: 320px) and (max-width: 600px) {
+        margin-right: 0;
+        width: 100%;
+        margin-bottom: 10px;
+        align-items: center;
+      }
 
       h3 {
         font-weight: bold;
@@ -224,7 +253,12 @@ body {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 13%;
+      // width: 13%;
+
+      @media (min-width: 320px) and (max-width: 600px) {
+        margin-bottom: 10px;
+        width: 100%;
+      }
 
       &-minus {
         svg {
@@ -253,6 +287,7 @@ body {
 
       b {
         font-size: 22px;
+        margin: 0 5px;
       }
     }
 
@@ -261,6 +296,12 @@ body {
       align-items: center;
       justify-content: center;
       width: 33%;
+
+      @media (min-width: 320px) and (max-width: 600px) {
+        margin-bottom: 10px;
+        width: 100%;
+        justify-content: center;
+      }
 
       b {
         font-weight: bold;
@@ -274,6 +315,11 @@ body {
       align-items: center;
       justify-content: flex-end;
       width: 4%;
+
+      @media (min-width: 320px) and (max-width: 600px) {
+        justify-content: center;
+        width: 100%;
+      }
 
       .button {
         border-color: darken($color: $gray-line, $amount: 10);
@@ -308,6 +354,10 @@ body {
     &-details {
       display: flex;
       justify-content: space-between;
+
+      @media (min-width: 320px) and (max-width: 600px) {
+        flex-direction: column;
+      }
 
       span {
         font-size: 22px;
@@ -367,14 +417,18 @@ body {
   }
 
   &--empty {
-    margin: 80px auto;
-    width: 620px;
+    margin: 50px 20px;
     text-align: center;
+
+    @media (min-width: 320px) and (max-width: 600px) {
+      margin: 20px 10px;
+    }
 
     h2 {
       font-size: 36px;
       font-weight: 700;
       margin-bottom: 15px;
+      line-height: 36px;
     }
 
     p {
@@ -391,7 +445,7 @@ body {
 
     img {
       display: block;
-      width: 300px;
+      width: 280px;
       margin: 45px auto 60px;
     }
 

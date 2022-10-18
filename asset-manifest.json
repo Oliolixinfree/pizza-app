@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/pizza-app/static/css/main.659ed1f6.css",
-    "main.js": "/pizza-app/static/js/main.114924ed.js",
+    "main.js": "/pizza-app/static/js/main.3a31bc07.js",
     "Cart.js": "/pizza-app/static/js/Cart.43ec2a75.chunk.js",
     "FullPizza.css": "/pizza-app/static/css/FullPizza.a8029c95.chunk.css",
     "FullPizza.js": "/pizza-app/static/js/FullPizza.48c96dd0.chunk.js",
@@ -11,7 +11,7 @@
     "static/media/pizza-logo.svg": "/pizza-app/static/media/pizza-logo.56ac87032d8f6fdf863326acd06c0d97.svg",
     "index.html": "/pizza-app/index.html",
     "main.659ed1f6.css.map": "/pizza-app/static/css/main.659ed1f6.css.map",
-    "main.114924ed.js.map": "/pizza-app/static/js/main.114924ed.js.map",
+    "main.3a31bc07.js.map": "/pizza-app/static/js/main.3a31bc07.js.map",
     "Cart.43ec2a75.chunk.js.map": "/pizza-app/static/js/Cart.43ec2a75.chunk.js.map",
     "FullPizza.a8029c95.chunk.css.map": "/pizza-app/static/css/FullPizza.a8029c95.chunk.css.map",
     "FullPizza.48c96dd0.chunk.js.map": "/pizza-app/static/js/FullPizza.48c96dd0.chunk.js.map",
@@ -20,6 +20,6 @@
   },
   "entrypoints": [
     "static/css/main.659ed1f6.css",
-    "static/js/main.114924ed.js"
+    "static/js/main.3a31bc07.js"
   ]
 }
